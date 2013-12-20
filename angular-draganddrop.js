@@ -10,6 +10,15 @@ angular
  *
  * @example
  * <div draggable="true" effect-allowed="link" draggable-type="image" draggable-data="{foo: 'bar'}"></div>
+ *
+ * - "draggable" Make the element draggable. Accepts a boolean.
+ * - "effect-allowed" Allowed effects for the dragged element,
+     see https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer#effectAllowed.28.29.
+     Accepts a string.
+ * - "draggable-type" Type of data object attached to the dragged element, this type
+     is prefixed by "json/". Accepts a string.
+ * - "draggable-data" Data attached to the dragged element, data are serialized in JSON.
+     Accepts an Angular expression.
  */
 
 function draggableDirective() {
@@ -49,11 +58,14 @@ function draggableDirective() {
  * <div drop="onDrop($data, $event)" drop-effect="link" drop-accept="'json/image'"
  * drag-over="onDragOver($event)" drag-over-class="drag-over"></div>
  *
- * - "drop" accept an Angular expression.
- * - "drop-effect" accept a string.
- * - "drop-accept" accept a string, an array, a function or a boolean.
- * - "drag-over" accept an Angular expression.
- * - "drag-over-class" accept a string.
+ * - "drop" Drop handler, executed on drop. Accepts an Angular expression.
+ * - "drop-effect" Drop effect to set,
+     see https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer#dropEffect.28.29.
+     Accepts a string.
+ * - "drop-accept" Types accepted or function to prevent unauthorized drag and drop.
+ *   Accepts a string, an array, a function or a boolean.
+ * - "drag-over" Drag over handler, executed on drag over. Accepts an Angular expression.
+ * - "drag-over-class" Class set on drag over, when the drag is authorized. Accepts a string.
  */
 
 function dropDirective($parse) {

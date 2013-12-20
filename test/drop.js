@@ -12,7 +12,7 @@ describe('Drop directive', function () {
 
     // "dragover" event.
     dragOverEvent = document.createEvent('CustomEvent');
-    dragOverEvent.initCustomEvent('dragover');
+    dragOverEvent.initCustomEvent('dragover', false, false, false);
     sinon.spy(dragOverEvent, 'preventDefault');
     dragOverEvent.dataTransfer = {
       dropEffect: 'none',
@@ -21,7 +21,7 @@ describe('Drop directive', function () {
 
     // "drop" event.
     dropEvent = document.createEvent('CustomEvent');
-    dropEvent.initCustomEvent('drop');
+    dropEvent.initCustomEvent('drop', false, false, false);
     sinon.spy(dropEvent, 'preventDefault');
     dropEvent.dataTransfer = {
       types: ['json/image', 'text/uri-list'],
@@ -33,7 +33,7 @@ describe('Drop directive', function () {
 
     // "dragleave" event.
     var dragLeaveEvent = document.createEvent('CustomEvent');
-    dragLeaveEvent.initCustomEvent('dragleave');
+    dragLeaveEvent.initCustomEvent('dragleave', false, false, false);
 
     dragOver = function (element) {
       element[0].dispatchEvent(dragOverEvent);

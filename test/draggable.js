@@ -26,7 +26,7 @@ describe('Draggable directive', function () {
 
     beforeEach(function () {
       dragEvent = document.createEvent('CustomEvent');
-      dragEvent.initCustomEvent('dragstart');
+      dragEvent.initCustomEvent('dragstart', false, false, false);
       dragEvent.dataTransfer = {
         setData: sinon.spy()
       };

@@ -8,7 +8,9 @@ module.exports = function (grunt) {
     uglify: {
       default: {
         options: {
-          preserveComments: 'some'
+          preserveComments: 'some',
+          sourceMap: 'angular-draganddrop.min.map',
+          sourceMappingURL: 'angular-draganddrop.min.map'
         },
         files: {
           'angular-draganddrop.min.js': 'angular-draganddrop.js'

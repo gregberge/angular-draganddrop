@@ -4,6 +4,7 @@
   "description": "Drag and drop directives for Angular using native HTML5 API.",
   "main": "index.js",
   "scripts": {
+    "install": "bower install",
     "test": "karma start --single-run"
   },
   "repository": {

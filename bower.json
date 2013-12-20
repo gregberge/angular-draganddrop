@@ -20,6 +20,7 @@
     "karma.conf.js",
     "node_modules",
     "bower_components",
+    "Gruntfile.js",
     "test"
   ],
   "dependencies": {

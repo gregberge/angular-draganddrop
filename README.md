@@ -70,3 +70,9 @@ The draggable directive serializes data as JSON and prefix the specified type wi
 - "drag-over-class" Class set on drag over, when the drag is authorized. Accepts a string.
 
 The drop directive automatically unserializes data with the "json" format, other data are not formatted.
+
+## Browsers support
+
+[All navigators that support the native HTML5 API](http://caniuse.com/dragndrop) should be supported.
+
+Tested on Firefox 24+, Chrome 31+.

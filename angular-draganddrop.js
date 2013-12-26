@@ -1,4 +1,4 @@
-/*! Angular draganddrop v0.1.2 | (c) 2013 Greg Bergé | License MIT */
+/*! Angular draganddrop v0.1.3 | (c) 2013 Greg Bergé | License MIT */
 
 angular
 .module('draganddrop', [])

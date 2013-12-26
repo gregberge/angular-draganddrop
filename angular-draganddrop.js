@@ -90,7 +90,9 @@ function dropDirective($parse) {
         event.dataTransfer.dropEffect = dropEffect || event.dataTransfer.dropEffect;
 
         // Call dragOverHandler
-        dragOverHandler(scope, { $event: event });
+        scope.$apply(function () {
+          dragOverHandler(scope, { $event: event });
+        });
 
         // Prevent default to accept drag and drop.
         event.preventDefault();
@@ -102,7 +104,9 @@ function dropDirective($parse) {
         removeDragOverClass();
 
         // Call dropHandler
-        dropHandler(scope, { $data: data, $event: event });
+        scope.$apply(function () {
+          dropHandler(scope, { $data: data, $event: event });
+        });
 
         // Prevent default navigator behaviour.
         event.preventDefault();

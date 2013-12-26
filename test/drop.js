@@ -141,6 +141,26 @@ describe('Drop directive', function () {
 
         expect(dragOverEvent.preventDefault).to.not.be.called;
       });
+
+      it('should be compatible with DOMStringList that are not array', function () {
+        dragOverEvent.dataTransfer.types = {
+          0: 'json/image',
+          1: 'text/uri-list',
+          length: 2
+        };
+
+        scope.checkType = function (types) {
+          expect(types).to.eql(['json/image', 'text/uri-list']);
+          return false;
+        };
+
+        var tpl = '<div drop drop-accept="checkType"></div>';
+        var element = $compile(tpl)(scope);
+
+        dragOver(element);
+
+        expect(dragOverEvent.preventDefault).to.not.be.called;
+      });
     });
 
     describe('boolean', function () {

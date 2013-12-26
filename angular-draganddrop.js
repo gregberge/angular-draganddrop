@@ -140,7 +140,7 @@ function dropDirective($parse) {
             });
           }, event);
         }
-        if (typeof type === 'function') return type(event.dataTransfer.types);
+        if (typeof type === 'function') return type(toArray(event.dataTransfer.types));
 
         return false;
       }
@@ -153,7 +153,7 @@ function dropDirective($parse) {
        */
 
       function getData(event) {
-        var types = event.dataTransfer.types;
+        var types = toArray(event.dataTransfer.types);
 
         return types.reduce(function (collection, type) {
           // Get data.
@@ -170,6 +170,16 @@ function dropDirective($parse) {
 
           return collection;
         }, {});
+      }
+
+      /**
+       * Convert a collection to an array.
+       *
+       * @param {Object} collection
+       */
+
+      function toArray(collection) {
+        return Array.prototype.slice.call(collection);
       }
     }
   };

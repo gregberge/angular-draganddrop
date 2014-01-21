@@ -20,10 +20,10 @@ HTML :
 <div ng-controller="DragDropCtrl">
 
   <!-- Draggable element. -->
-  <div draggable="true" effect-allowed="copy" draggable-type="customObject" draggable-data="{foo: 'bar'}"></div>
+  <div draggable="true" effect-allowed="copy" draggable-type="custom-object" draggable-data="{foo: 'bar'}"></div>
   
   <!-- Dropzone element. -->
-  <div drop="onDrop($data, $event)" drop-effect="copy" drop-accept="'json/customObject'" drag-over="onDragOver($event)" drag-over-class="drag-over-accept"></div>
+  <div drop="onDrop($data, $event)" drop-effect="copy" drop-accept="'json/custom-object'" drag-over="onDragOver($event)" drag-over-class="drag-over-accept"></div>
   
 </div>
 ```
@@ -37,7 +37,7 @@ angular.module('controllers.dragDrop', ['draganddrop'])
   // Drop handler.
   $scope.onDrop = function (data, event) {
     // Get custom object data.
-    var customObjectData = data['json/customObject']; // {foo: 'bar'}
+    var customObjectData = data['json/custom-object']; // {foo: 'bar'}
     
     // Get other attached data.
     var uriList = data['text/uri-list']; // http://mywebsite.com/..

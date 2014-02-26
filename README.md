@@ -84,3 +84,7 @@ The drop directive automatically unserializes data with the "json" format, other
 [All navigators that support the native HTML5 API](http://caniuse.com/dragndrop) should be supported.
 
 Tested on Firefox 24+, Chrome 31+.
+
+## License
+
+MIT

@@ -18,7 +18,7 @@ npm install angular-draganddrop
 
 ## Usage
 
-HTML : 
+HTML :
 
 ```html
 <!-- Load files. -->
@@ -29,14 +29,14 @@ HTML :
 
   <!-- Draggable element. -->
   <div draggable="true" effect-allowed="copy" draggable-type="custom-object" draggable-data="{foo: 'bar'}"></div>
-  
+
   <!-- Dropzone element. -->
   <div drop="onDrop($data, $event)" drop-effect="copy" drop-accept="'json/custom-object'" drag-over="onDragOver($event)" drag-over-class="drag-over-accept"></div>
-  
+
 </div>
 ```
 
-JavaScript : 
+JavaScript :
 
 ```js
 angular.module('controllers.dragDrop', ['draganddrop'])
@@ -46,13 +46,13 @@ angular.module('controllers.dragDrop', ['draganddrop'])
   $scope.onDrop = function (data, event) {
     // Get custom object data.
     var customObjectData = data['json/custom-object']; // {foo: 'bar'}
-    
+
     // Get other attached data.
     var uriList = data['text/uri-list']; // http://mywebsite.com/..
-    
+
     // ...
   };
-  
+
   // Drag over handler.
   $scope.onDragOver = function (event) {
     // ...

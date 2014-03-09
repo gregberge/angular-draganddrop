@@ -13,7 +13,7 @@ bower install angular-draganddrop
 ### Using npm
 
 ```sh
-npm install angular-dragandrop
+npm install angular-draganddrop
 ```
 
 ## Usage

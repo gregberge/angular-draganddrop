@@ -1,4 +1,4 @@
-# angular-dragandrop [![Build Status](https://travis-ci.org/neoziro/angular-draganddrop.png?branch=master)](https://travis-ci.org/neoziro/angular-draganddrop)
+# angular-draganddrop [![Build Status](https://travis-ci.org/neoziro/angular-draganddrop.png?branch=master)](https://travis-ci.org/neoziro/angular-draganddrop)
 
 Drag and drop directives for Angular using native HTML5 API.
 

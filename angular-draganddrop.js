@@ -80,7 +80,17 @@ function dropDirective($parse) {
       var dragOverHandler = $parse(attrs.dragOver);
       var dropHandler = $parse(attrs.drop);
 
-      domElement.addEventListener('dragover', function (event) {
+      domElement.addEventListener('dragover', dragOverListener);
+      domElement.addEventListener('drop', dropListener);
+      domElement.addEventListener('dragleave', removeDragOverClass);
+
+      scope.$on('$destroy', function () {
+        domElement.removeEventListener('dragover', dragOverListener);
+        domElement.removeEventListener('drop', dropListener);
+        domElement.removeEventListener('dragleave', removeDragOverClass);
+      });
+
+      function dragOverListener(event) {
         // Check if type is accepted.
         if (! accepts(scope.$eval(dropAccept), event)) return true;
 
@@ -96,9 +106,9 @@ function dropDirective($parse) {
 
         // Prevent default to accept drag and drop.
         event.preventDefault();
-      });
+      }
 
-      domElement.addEventListener('drop', function (event) {
+      function dropListener(event) {
         var data = getData(event);
 
         removeDragOverClass();
@@ -110,9 +120,7 @@ function dropDirective($parse) {
 
         // Prevent default navigator behaviour.
         event.preventDefault();
-      });
-
-      domElement.addEventListener('dragleave', removeDragOverClass);
+      }
 
       /**
        * Remove the drag over class.

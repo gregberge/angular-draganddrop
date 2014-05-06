@@ -68,7 +68,7 @@ function draggableDirective() {
  * - "drag-over-class" Class set on drag over, when the drag is authorized. Accepts a string.
  */
 
-function dropDirective($parse) {
+function dropDirective($parse, $scope) {
   return {
     restrict: 'A',
     link: function (scope, element, attrs) {
@@ -80,7 +80,7 @@ function dropDirective($parse) {
       var dragOverHandler = $parse(attrs.dragOver);
       var dropHandler = $parse(attrs.drop);
 
-      domElement.addEventListener('dragover', function (event) {
+      var dragoverEvent = function (event) {
         // Check if type is accepted.
         if (! accepts(scope.$eval(dropAccept), event)) return true;
 
@@ -97,8 +97,8 @@ function dropDirective($parse) {
         // Prevent default to accept drag and drop.
         event.preventDefault();
       });
-
-      domElement.addEventListener('drop', function (event) {
+      
+      var dropEvent = function (event) {
         var data = getData(event);
 
         removeDragOverClass();
@@ -112,7 +112,15 @@ function dropDirective($parse) {
         event.preventDefault();
       });
 
+      domElement.addEventListener('dragover', dragoverEvent);
+      domElement.addEventListener('drop', dropEvent);
       domElement.addEventListener('dragleave', removeDragOverClass);
+
+      $scope.$on('$destroy', function () {
+        domElement.removeEventListener('dragover', dragoverEvent);
+        domElement.removeEventListener('drop', dropEvent);
+        domElement.removeEventListener('dragleave', removeDragOverClass);
+      }).
 
       /**
        * Remove the drag over class.

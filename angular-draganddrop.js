@@ -46,6 +46,8 @@ function draggableDirective() {
 
         // Set drag data and drag type.
         e.dataTransfer.setData('json/' + draggableType, jsonData);
+        
+        e.stopPropagation();
       });
     }
   };

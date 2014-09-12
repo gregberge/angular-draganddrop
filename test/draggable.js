@@ -26,7 +26,7 @@ describe('Draggable directive', function () {
 
     beforeEach(function () {
       dragEvent = document.createEvent('CustomEvent');
-      dragEvent.initCustomEvent('dragstart', false, false, false);
+      dragEvent.initCustomEvent('dragstart', true, false, false);
       dragEvent.dataTransfer = {
         setData: sinon.spy()
       };
@@ -45,6 +45,18 @@ describe('Draggable directive', function () {
 
       expect(dragEvent.dataTransfer.effectAllowed).to.equal('link');
       expect(dragEvent.dataTransfer.setData).to.be.calledWith('json/image', '{"foo":"bar"}');
+    });
+
+    it('should prevent bubbling', function() {
+        var tpl = '<div draggable draggable-data="{foo: \'bar\'}" draggable-type="image">'+
+        '<div class="sub" draggable draggable-data="{toto: \'toto\'}" draggable-type="toto"></div>'+
+        '</div>';
+        var element = $compile(tpl)(scope);
+
+        // Bubbling can only be test on firefox, due to a chrome bug where customEvent don't bubble
+        startDrag(element.find('.sub'));
+
+        expect(dragEvent.dataTransfer.setData).to.have.been.calledOnce;
     });
   });
 });

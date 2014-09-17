@@ -1,4 +1,4 @@
-/*! Angular draganddrop v0.1.4 | (c) 2013 Greg Bergé | License MIT */
+/*! Angular draganddrop v0.2.1 | (c) 2013 Greg Bergé | License MIT */
 
 angular
 .module('draganddrop', [])
@@ -46,7 +46,7 @@ function draggableDirective() {
 
         // Set drag data and drag type.
         e.dataTransfer.setData('json/' + draggableType, jsonData);
-        
+
         e.stopPropagation();
       });
     }

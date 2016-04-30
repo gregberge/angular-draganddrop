@@ -1,4 +1,7 @@
 # angular-draganddrop
+
+# This plugin is no longer actively maintained, you can still use it but issues will not be resolved. If you want the npm name, you can contact me by email.
+
 [![Build Status](https://travis-ci.org/neoziro/angular-draganddrop.svg?branch=master)](https://travis-ci.org/neoziro/angular-draganddrop)
 [![Dependency Status](https://david-dm.org/neoziro/angular-draganddrop.svg?theme=shields.io)](https://david-dm.org/neoziro/angular-draganddrop)
 [![devDependency Status](https://david-dm.org/neoziro/angular-draganddrop/dev-status.svg?theme=shields.io)](https://david-dm.org/neoziro/angular-draganddrop#info=devDependencies)
